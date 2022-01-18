@@ -1,0 +1,264 @@
+:root {
+  --height: 200px;
+  --width: 200px;
+  --gap: 20px;
+}
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  padding: 0;
+  color: rgb(31, 71, 83);
+  font-size: 25px;
+  overflow-x: hidden;
+}
+a {
+  text-decoration: none;
+}
+/* Task Menu */
+.menu-container {
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 60px;
+}
+.fig-block {
+  padding-bottom: 10px;
+}
+.figcap {
+  background-color: burlywood;
+  padding: 20px 100px;
+  margin-bottom: 20px;
+}
+.figcap-link {
+  color: #07357a;
+  text-shadow: 1px 1px 1px cornsilk;
+}
+.fig-block:hover {
+  outline: 2px solid darkred;
+}
+.fig-block:hover .figcap {
+  background-color: rgb(31, 71, 83);
+}
+.fig-block:hover .figcap-link {
+  color: burlywood;
+}
+/* Task Block */
+.container {
+  height: var(--height);
+  background-color: antiquewhite;
+  outline: 5px solid #07357a;
+  position: relative;
+  float: left;
+  margin-top: 50px;
+  margin-left: 150px;
+}
+.container--sm {
+  width: var(--width);
+}
+.container--lg {
+  width: calc(var(--width) * 2);
+}
+.square {
+  height: 50%;
+  width: 50%;
+  background-color: goldenrod;
+  position: absolute;
+}
+.square--in-lg {
+  width: 25%;
+  background-color: midnightblue;
+  bottom: -30%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.square--1 {
+  top: 0;
+  left: 0;
+  background-color: maroon;
+}
+.square--2 {
+  top: 0;
+  right: 0;
+  background-color: salmon;
+}
+.square--3 {
+  top: 50%;
+  left: 0;
+  background-color: yellowgreen;
+}
+.square--4 {
+  top: 50%;
+  right: 0;
+  background-color: royalblue;
+}
+
+.square--5 {
+  left: -15%;
+  z-index: -1;
+}
+.square--6 {
+  left: 37.5%;
+  z-index: 1;
+}
+.square--7 {
+  right: 10%;
+  z-index: -1;
+}
+.rect {
+  background-color: olivedrab;
+  position: absolute;
+  inset: var(--gap);
+}
+/* Visual */
+.bg-img {
+  position: fixed;
+  z-index: -1;
+  top: 0;
+  height: 100vh;
+  width: 100vw;
+  background-color: rgb(59, 59, 59);
+  background-image: url(../img/background-image.jpg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.bg-overlay {
+  background-color: rgba(255, 255, 255, 0.3);
+  min-height: 60vh;
+  width: auto;
+  margin: 50px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: -1;
+}
+.bg-overlay.bg-overlay--animation {
+  animation: bg-overlay--animation 2s ease-in-out;
+}
+@keyframes bg-overlay--animation {
+  0% {
+    min-height: 10vh;
+  }
+  100% {
+    min-height: 60vh;
+  }
+}
+.content-container {
+  width: 100vw;
+  padding: 50px;
+  position: relative;
+  margin: 0 auto;
+}
+.content {
+  margin-top: 110px;
+  margin-bottom: 70px;
+  text-align: center;
+}
+.gradient-anim {
+  text-shadow: 1px 1px 3px antiquewhite;
+  animation: gradient-anim 2s ease-in-out infinite;
+  animation-direction: alternate;
+}
+@keyframes gradient-anim {
+  0% {
+    color: rgb(31, 71, 83);
+  }
+  100% {
+    color: rgb(22, 130, 138);
+  }
+}
+.link-block {
+  width: 50%;
+  position: absolute;
+  top: calc(25vh - 30px);
+}
+.link-block--task-block {
+  animation: link-block--task-block 2s ease-in-out;
+  animation-fill-mode: forwards;
+}
+.link-block--task-menu {
+  animation: link-block--task-menu 2s ease-in-out;
+  animation-fill-mode: forwards;
+}
+@keyframes link-block--task-block {
+  0% {
+    left: -1000px;
+  }
+  100% {
+    left: 50px;
+  }
+}
+@keyframes link-block--task-menu {
+  0% {
+    right: -1000px;
+  }
+  100% {
+    right: 50px;
+  }
+}
+.task-links {
+  text-shadow: 1px 1px 1px rgb(25, 36, 39);
+  color: dodgerblue;
+  font-size: 30px;
+  border: 2px solid rgb(25, 36, 39);
+  background-color: rgb(31, 71, 83);
+  display: flex;
+  justify-content: center;
+  margin: 30px 100px;
+  padding: 5px;
+  box-shadow: 1px 1px 3px rgba(255, 255, 255, 0.5);
+  transition: 0.5s;
+  animation: links 2s linear infinite;
+  animation-delay: 2s;
+  animation-direction: alternate;
+}
+@keyframes links {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.05);
+  }
+}
+.task-links:hover {
+  background-color: rgb(20, 101, 139);
+  border: 2px solid rgb(1, 26, 37);
+}
+.goback-link {
+  text-shadow: 1px 1px 1px rgb(25, 36, 39);
+  color: dodgerblue;
+  font-size: 30px;
+  border: 2px solid rgb(25, 36, 39);
+  background-color: rgb(31, 71, 83);
+  margin: 20px;
+  padding: 10px;
+  box-shadow: 1px 1px 3px rgba(255, 255, 255, 0.5);
+  animation: goback-link 2s ease-in-out;
+}
+@keyframes goback-link {
+  0% {
+    color: transparent;
+    background-color: transparent;
+    border-color: transparent;
+    box-shadow: 1px 1px 3px transparent;
+    text-shadow: 1px 1px 1px transparent;
+  }
+  100% {
+    color: dodgerblue;
+    background-color: rgb(31, 71, 83);
+    border-color: rgb(25, 36, 39);
+    box-shadow: 1px 1px 3px rgba(255, 255, 255, 0.5);
+    text-shadow: 1px 1px 1px rgb(25, 36, 39);
+  }
+}
+.footer {
+  text-shadow: 0.5px 0.5px 1px rgb(25, 36, 39);
+  text-align: center;
+  position: fixed;
+  width: 100vw;
+  bottom: 0;
+}
